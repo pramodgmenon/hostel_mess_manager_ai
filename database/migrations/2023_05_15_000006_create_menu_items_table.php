@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('menu_items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
-            $table->boolean('vegetarian')->default(false);
-            $table->string('day');
+            $table->text('description')->nullable();
             $table->enum('meal_type', ['breakfast', 'lunch', 'dinner']);
+            $table->enum('day_of_week', ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']);
+            $table->boolean('is_vegetarian')->default(true);
+            $table->integer('calories')->nullable();
             $table->timestamps();
         });
     }

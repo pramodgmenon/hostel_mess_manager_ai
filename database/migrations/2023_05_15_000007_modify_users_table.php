@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('mobile')->unique()->after('email');
-            $table->enum('user_type', ['student', 'management'])->default('student')->after('mobile');
-            $table->foreignId('active_meal_plan_id')->nullable()->after('user_type');
-            $table->decimal('balance', 10, 2)->default(0)->after('active_meal_plan_id');
-        });
+        // This migration is not needed since we already created the users table with all required fields
+        // It's kept for reference in case additional modifications are needed
     }
 
     /**
@@ -24,8 +20,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['mobile', 'user_type', 'active_meal_plan_id', 'balance']);
-        });
+        // No changes to reverse
     }
 };

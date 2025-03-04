@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('inventory_items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('category');
-            $table->decimal('quantity', 10, 2);
+            $table->text('description')->nullable();
             $table->string('unit');
+            $table->decimal('quantity', 10, 2);
+            $table->decimal('unit_price', 10, 2);
+            $table->string('category');
             $table->decimal('reorder_level', 10, 2);
             $table->timestamps();
         });

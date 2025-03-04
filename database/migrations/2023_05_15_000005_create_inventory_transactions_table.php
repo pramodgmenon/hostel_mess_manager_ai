@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('inventory_transactions', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['Purchase', 'Issue', 'Return']);
-            $table->string('item');
+            $table->foreignId('inventory_item_id')->constrained()->onDelete('cascade');
+            $table->foreignId('supplier_id')->nullable()->constrained()->onDelete('set null');
+            $table->string('transaction_type');
             $table->decimal('quantity', 10, 2);
-            $table->string('unit');
-            $table->string('supplier')->nullable();
-            $table->decimal('amount', 10, 2)->default(0);
+            $table->decimal('unit_price', 10, 2);
+            $table->decimal('total_price', 10, 2);
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }
