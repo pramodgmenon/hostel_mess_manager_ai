@@ -1,0 +1,50 @@
+/* Custom styles for the application */
+
+/* Override Bootstrap variables */
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+}
+
+/* Custom utility classes */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #0a58ca 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #0a58ca 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom card styles */
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Custom button styles */
+.btn-rounded {
+  border-radius: 50px;
+}
+
+/* Custom animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
